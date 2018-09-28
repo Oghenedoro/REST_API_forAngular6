@@ -1,0 +1,37 @@
+package com.org;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.org.dao.IProduit;
+import com.org.entities.Produit;
+import com.org.service.ProduitImpl;
+
+@SpringBootApplication
+public class ProductManagementApplication implements CommandLineRunner{
+	
+	@Autowired
+	IProduit produit;
+
+	public static void main(String[] args) {
+	 SpringApplication.run(ProductManagementApplication.class, args);
+	
+ }
+	@Override
+	public void run(String... args) throws Exception {
+		
+     List<Produit>produits = produit.getAllPrduits();
+		System.out.println(produits.toString());  
+		
+		System.out.println(produits.get(1).toString()); 
+	}
+	
+	
+	
+}
+

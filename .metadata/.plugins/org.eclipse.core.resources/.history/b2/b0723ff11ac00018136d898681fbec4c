@@ -1,0 +1,5 @@
+package com.org.entities;
+
+public class Produit {
+
+}
