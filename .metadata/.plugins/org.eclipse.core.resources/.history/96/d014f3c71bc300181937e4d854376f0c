@@ -48,8 +48,12 @@ public class ProduitController {
 	
 	@PutMapping("/prods")
 	 public Produit modifieProduit(@RequestBody Produit p){	
-				
-		 return service.upDateProduit(p);  
+		//Produit prod = new Produit();
+		p.setNom(p.getNom()); 
+		p.setPrixUnitaire(p.getPrixUnitaire());
+		p.setQuantity(p.getQuantity());
+		
+		 return service.addProduit(p); 
   }
 	
 	
