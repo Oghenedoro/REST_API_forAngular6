@@ -1,7 +1,15 @@
 package com.org.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Produit {
 
+	@Id
+	private String ref;
 	private String nom;
 	private int quantity;
 	private int prixUnitaire;
@@ -12,11 +20,12 @@ public class Produit {
 		super();
 		
 	}
-	public Produit(String nom, int quantity, int prixUnitaire) {
+	public Produit(String ref, String nom, int quantity, int prixUnitaire) {
 		super();
 		this.nom = nom;
 		this.quantity = quantity;
 		this.prixUnitaire = prixUnitaire;
+		this.ref = ref;
 	}
 	public String getNom() {
 		return nom;
@@ -35,6 +44,12 @@ public class Produit {
 	}
 	public void setPrixUnitaire(int prixUnitaire) {
 		this.prixUnitaire = prixUnitaire;
+	}
+	public String getRef() {
+		return ref;
+	}
+	public void setRef(String ref) {
+		this.ref = ref;
 	}
 	
 	
