@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "title": "Genuitec",
-  "timestamp": 1538313481767,
+  "timestamp": 1538925987728,
   "ttl": 10080,
   "helpUrl": "https://aer.ctrlflow.com/genuitec/help",
   "feedbackUrl": "https://www.codetrails.com/error-analytics/",
@@ -39,5 +39,5 @@
   "ignoredStatuses": [
     ":java.net.*:"
   ],
-  "problemsZipLastDownloadTimestamp": 1538313782337
+  "problemsZipLastDownloadTimestamp": 1538926288404
 }
