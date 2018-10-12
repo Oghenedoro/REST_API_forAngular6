@@ -1,14 +1,16 @@
 package com.org;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-
 import com.org.entities.Produit;
+import com.org.entities.Role;
+import com.org.entities.User;
 import com.org.service.ProduitService;
 
 
@@ -29,10 +31,25 @@ public class ProductManagementApplication implements CommandLineRunner{
 		service.addProduit(new Produit("A1","tele",30,1025));
 		service.addProduit(new Produit("A2","ccar",14,5000));
 		
-//     List<Produit>produits = produit.getAllPrduits();
-//		System.out.println(produits.toString());  
-//		
-//		System.out.println(produits.get(1).getNom()); 
+		Role roleUser = new Role("USER");
+		Role roleAdmin = new Role("ADMIN");
+		
+		service.addRole(roleUser);
+		service.addRole(roleAdmin);
+		
+		User user = new User("user","password",true);
+		user.setRoles(Arrays.asList(roleUser));
+		    
+		service.addUser(user);
+		
+		
+		User userAdmin = new User("ADMIN","password2",true);
+	     userAdmin.setRoles(Arrays.asList(roleUser,roleAdmin));
+	    
+    	service.addUser(userAdmin);
+     
+		
+		
 	}
 	
 	}
