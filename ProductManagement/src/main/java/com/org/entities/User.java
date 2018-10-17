@@ -1,9 +1,6 @@
 package com.org.entities;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,24 +18,30 @@ public class User {
 	private Long userId;
 	private String userName;
 	private String passWord;
-	private boolean isActive;
+	private boolean enable;
 	
-	@ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="user_roles",
-    joinColumns = {@JoinColumn(name="user_id", referencedColumnName="userId")},
-    inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="roleId")})
+    joinColumns = {@JoinColumn(name="user_id")},
+    inverseJoinColumns = {@JoinColumn(name="role_id")})
 	private List<Role>roles;
 	
-	
-	public User() {		
+	public User() {
+		super();	
 	}
+	
+	
 
-	public User(String userName, String passWord,boolean isActive) {
+	public User(String userName, String passWord, boolean enable) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
-		this.isActive = isActive;
+		this.enable = enable;
 	}
+
+
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -76,12 +79,14 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-
-	public boolean isActive() {
-		return isActive;
+	public boolean getEnable() {
+		return enable;
+	}
+	public void setEnable(boolean enable) {
+		this.enable = enable;
 	}
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
+    
+	
+	
 }

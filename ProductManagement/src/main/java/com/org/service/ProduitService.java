@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.org.dao.IProduit;
-import com.org.dao.IRole;
-import com.org.dao.IUser;
+import com.org.dao.RoleRepository;
+import com.org.dao.UserRepository;
 import com.org.entities.Produit;
 import com.org.entities.Role;
 import com.org.entities.User;
@@ -22,10 +22,9 @@ public class ProduitService{
 	
 	@Autowired
 	IProduit dao;
+	
 	@Autowired
-	IUser userDao;
-	@Autowired
-	IRole roleDao;
+	RoleRepository roleDao;
 	
 	public Produit addProduit(Produit p){
 		
@@ -58,15 +57,10 @@ public class ProduitService{
 		return p;
 }
   
-  public User addUser(User user){
-	 Role r = roleDao.findByRoleName(new Role().getRoleName()); 
-	 user.setRoles(new ArrayList<Role>(Arrays.asList(r)));
-	 
-	  return userDao.save(user);
-  }
   
   public Role addRole(Role role){
 	return roleDao.save(role); 
 	  
   }
+  
 }	

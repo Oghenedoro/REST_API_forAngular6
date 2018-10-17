@@ -1,5 +1,6 @@
 package com.org.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,12 @@ import com.org.service.ProduitService;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/app")
 public class ProduitController {
 	
 	@Autowired
 	ProduitService service;
 
-	//@RequestMapping(value="/products",method=RequestMethod.GET)
 	@GetMapping("/prods")
 	public List<Produit> getProduits(){	
 		 return service.getAllProduits();	
@@ -61,4 +62,5 @@ public class ProduitController {
 	   return prod;
 		 
 	}
+
 }

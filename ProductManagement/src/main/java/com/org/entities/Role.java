@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.org.util.RoleEnum;
+
 @Entity
 public class Role {
 
@@ -28,6 +30,10 @@ public class Role {
 		this.roleName = roleName;
 	}
 
+	public Role(RoleEnum role){
+		super();
+		this.roleName = role.getRoleName();
+	}
 	public Long getRoleId() {
 		return roleId;
 	}
